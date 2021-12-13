@@ -1,5 +1,5 @@
-import { homePageObj } from "../pageObject/HomePage";
-import { careersPageObj } from "../pageObject/CareersPage";
+import { homePageObj } from "../pageObjects/HomePage";
+import { careersPageObj } from "../pageObjects/CareersPage";
 
 describe('Test task for QA automation position', () => {
     beforeEach('Preconditions', () => {
@@ -11,14 +11,14 @@ describe('Test task for QA automation position', () => {
         cy.url().should('equal', `${Cypress.config().baseUrl}/careers/`);
     })
 
-    it('Scenario 1', () => {
+    it('QA_TASK Scenario 1', () => {
         // AND the page contains exactly 1 'QA Automation Engineer (Cypress)' role open
         careersPageObj.getJobOffer('QA Automation Engineer (Cypress)')
             .its('length')
             .should('eq', 1);
     })
 
-    it('Scenario 2', () => {
+    it('QA_TASK Scenario 2', () => {
         // WHEN the user types 'Automation' in Search jobs input
         careersPageObj.getSearchFld().type('Automation');
         // THEN each result contains "Automation" in title
